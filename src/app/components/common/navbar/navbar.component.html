@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container top-header">
+        <a class="navbar-brand top-header__brand" 
+           [routerLink]="['/']" 
+           fragment="home"
+           (click)="onLogoClick($event)">
+            <img src="assets/img/stratpharma_logo.svg" alt="Stratpharma" class="top-header__logo-img">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav top-header__nav">
+                <li class="nav-item" *ngFor="let navItem of navItems; let i = index">
+                    <a [routerLink]="['/']" 
+                       [fragment]="navItem.id"
+                       class="nav-link top-header__link" 
+                       [class.top-header__link--multi-line]="navItem.titleLines"
+                       [class.top-header__link--active]="isActive(navItem.id)"
+                       (click)="onNavClick($event, navItem.id)">
+                        <ng-container *ngIf="navItem.titleLines; else singleTitle">
+                            <span class="top-header__link-line" *ngFor="let line of navItem.titleLines">{{ line }}</span>
+                        </ng-container>
+                        <ng-template #singleTitle>{{ navItem.title }}</ng-template>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

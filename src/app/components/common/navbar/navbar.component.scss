@@ -1,0 +1,182 @@
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: auto;
+    z-index: 999;
+    padding: 0;
+    &.is-sticky {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 999;
+        box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.09);
+        background-color: var(--whiteColor) !important;
+        animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
+    }
+}
+
+.navbar-light {
+    background-color: var(--whiteColor) !important;
+}
+
+.top-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    gap: 1.25rem;
+}
+
+.top-header__brand {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-decoration: none;
+    color: inherit;
+    line-height: 1.2;
+}
+
+.top-header__icon {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 0.35rem;
+    color: var(--mainColor);
+    vertical-align: middle;
+}
+
+.top-header__brand {
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.top-header__logo-img {
+    display: block;
+    height: 6.5rem;
+    width: auto;
+    max-width: 480px;
+    object-fit: contain;
+}
+
+.top-header__tagline {
+    display: block;
+    width: 100%;
+    margin-left: 0;
+    padding-left: 0;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #9a9a9a;
+    margin-top: 0.15rem;
+}
+
+.top-header__nav {
+    margin-left: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem 1rem;
+    list-style: none;
+    margin-bottom: 0;
+    padding-left: 0;
+
+    .nav-item {
+        padding: 0;
+    }
+
+    .nav-link {
+        color: var(--blackColor);
+        text-decoration: none;
+        font-size: 1.1rem;
+        font-weight: 700;
+        font-family: var(--headingFontFamily);
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        padding: 0.6rem 1rem;
+        margin: 0;
+        border: none;
+        background: transparent;
+
+        &:hover {
+            color: var(--mainColor);
+        }
+
+        &.top-header__link--active {
+            color: var(--mainColor);
+        }
+
+        &.top-header__link--multi-line {
+            text-align: center;
+        }
+    }
+
+    .top-header__link-line {
+        display: block;
+        line-height: 1.25;
+    }
+}
+
+/* Collapse en desktop: mantener nav a la derecha */
+.navbar-collapse {
+    flex-grow: 0;
+}
+
+@media only screen and (max-width: 991px) {
+    .top-header__tagline {
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    .top-header__nav {
+        margin-left: 0;
+        margin-top: 0.5rem;
+        width: 100%;
+        .nav-link {
+            padding: 0.5rem 0;
+            display: block;
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width: 767px) {
+    .navbar-light .navbar-toggler {
+        color: var(--blackColor);
+        border-color: var(--blackColor);
+        border-radius: 0;
+    }
+
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+
+    .top-header__nav {
+        background-color: #f9f9f9;
+        padding: 1rem;
+        margin-top: 0.5rem;
+    }
+}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .navbar-light .navbar-toggler {
+        color: var(--blackColor);
+        border-color: var(--blackColor);
+        border-radius: 0;
+    }
+
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+
+    .top-header__nav {
+        background-color: #f9f9f9;
+        padding: 1rem;
+        margin-top: 0.5rem;
+    }
+}

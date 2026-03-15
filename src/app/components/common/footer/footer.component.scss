@@ -1,0 +1,27 @@
+.app-footer {
+  background-color: #fafafa;
+  text-align: center;
+  padding: 1.5rem 0.5rem;
+}
+
+.app-footer__inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.app-footer__text {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+@media (max-width: 767px) {
+  .app-footer {
+    padding: 1.25rem 0.5rem;
+  }
+
+  .app-footer__text {
+    font-size: 0.85rem;
+  }
+}

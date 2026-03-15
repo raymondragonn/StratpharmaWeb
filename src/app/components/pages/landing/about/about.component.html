@@ -1,0 +1,44 @@
+<section class="product-detail">
+  <!-- Banner NUESTROS PRODUCTOS -->
+  <div class="product-detail__banner">
+    <h2 class="product-detail__banner-title">NUESTROS PRODUCTOS</h2>
+  </div>
+
+  <!-- Contenido del producto: ocupa el resto de la pantalla -->
+  <div class="product-detail__content" *ngIf="product; else notFound">
+    <div class="product-detail__content-inner">
+      <div class="product-detail__grid">
+        <!-- Columna izquierda: imágenes -->
+        <div class="product-detail__images">
+          <div class="product-detail__main-image-card">
+            <img [src]="product.mainImage" [alt]="product.content.title">
+            <span class="product-detail__overlay-label" *ngIf="product.overlayLabel">{{ product.overlayLabel }}</span>
+          </div>
+          <div class="product-detail__thumbnails">
+            <div class="product-detail__thumb-card" *ngFor="let thumb of product.thumbnails">
+              <img [src]="thumb" [alt]="product.content.title">
+            </div>
+          </div>
+        </div>
+
+        <!-- Columna derecha: título, descripción, CTA -->
+        <div class="product-detail__info">
+          <h1 class="product-detail__title">{{ product.content.title }}</h1>
+          <p class="product-detail__paragraph" *ngFor="let p of product.content.paragraphList">{{ p.paragraph }}</p>
+          <p class="product-detail__highlight" *ngIf="product.content.highlightLine">{{ product.content.highlightLine }}</p>
+          <a [href]="product.shopUrl" target="_blank" rel="noopener noreferrer" class="product-detail__btn">COMPRAR PRODUCTO</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #notFound>
+    <div class="product-detail__content product-detail__not-found-wrap">
+    <div class="product-detail__not-found">
+      <p *ngIf="!productId">Selecciona un producto desde la landing para ver su información.</p>
+      <p *ngIf="productId">No hay información disponible para este producto.</p>
+      <a routerLink="/" class="product-detail__btn">Volver a la landing</a>
+    </div>
+    </div>
+  </ng-template>
+</section>

@@ -1,0 +1,30 @@
+<section id="features" class="features">
+  <!-- Banner introductorio: fondo rosa, texto blanco centrado -->
+  <div class="features-intro">
+    <p class="features-intro__text">{{ introText }}</p>
+  </div>
+
+  <!-- Sección con imagen de fondo difuminada y 4 círculos -->
+  <div class="features-circles">
+    <div class="features-circles__bg"></div>
+    <div class="features-circles__content">
+      <div class="features-circles__grid">
+        <div class="features-circle" *ngFor="let circle of circles">
+          <ng-container *ngIf="circle.number">
+            <p class="features-circle__line" *ngFor="let line of circle.linesTop">{{ line }}</p>
+            <span class="features-circle__number">{{ circle.number }}</span>
+            <p class="features-circle__line" *ngFor="let line of circle.linesBottom">{{ line }}</p>
+          </ng-container>
+          <ng-container *ngIf="circle.textLines && !circle.number && !circle.linkText">
+            <p class="features-circle__line" *ngFor="let line of circle.textLines">{{ line }}</p>
+          </ng-container>
+          <ng-container *ngIf="circle.linkText">
+            <p class="features-circle__line" *ngFor="let line of circle.linesTop">{{ line }}</p>
+            <a [href]="circle.linkUrl || '#'" class="features-circle__link">{{ circle.linkText }}</a>
+            <p class="features-circle__line" *ngFor="let line of circle.linesAfterLink">{{ line }}</p>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

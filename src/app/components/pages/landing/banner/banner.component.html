@@ -1,0 +1,11 @@
+<section id="home" class="hero-banner">
+    <div class="hero-banner__nav-row">
+        <div class="hero-banner__nav-col" *ngFor="let item of navItems">{{ item }}</div>
+    </div>
+    <div class="hero-banner__bg"></div>
+    <div class="hero-banner__content">
+        <h1 class="hero-banner__title">{{ bannerContent[0].title }}</h1>
+        <p class="hero-banner__subtitle">{{ bannerContent[0].subTitle }}</p>
+        <a [routerLink]="bannerContent[0].buttonLink" class="hero-banner__btn default-btn">{{ bannerContent[0].buttonText }}<span></span></a>
+    </div>
+</section>

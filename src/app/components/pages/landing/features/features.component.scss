@@ -1,0 +1,178 @@
+.features {
+  padding: 0;
+}
+
+/* Banner introductorio: fondo rosa oscuro, texto blanco centrado */
+.features-intro {
+  width: 100%;
+  padding: 2rem 0.75rem;
+  background-color: var(--mainColor);
+  text-align: center;
+}
+
+.features-intro__text {
+  margin: 0 auto;
+  max-width: 1100px;
+  padding: 0 0.25rem;
+  color: var(--whiteColor);
+  font-size: 1.35rem;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* Sección con imagen de fondo y 4 círculos */
+.features-circles {
+  position: relative;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.features-circles__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-color: #e0e4e8;
+  background-image: url(../../../../../assets/img/book-banner-bg.jpg);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: blur(5px);
+  transform: scale(1.05);
+}
+
+.features-circles__bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.25);
+  z-index: 1;
+}
+
+.features-circles__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 3rem 0.75rem;
+}
+
+.features-circles__grid {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 3rem;
+  max-width: 1450px;
+  margin: 0 auto;
+}
+
+/* Círculo: fondo rosa, texto blanco; 4 en una fila */
+.features-circle {
+  flex: 0 0 auto;
+  width: 300px;
+  min-height: 300px;
+  border-radius: 50%;
+  background-color: #D9A5B8;
+  color: var(--whiteColor);
+  text-align: center;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.features-circle__line {
+  margin: 0 0 0.3rem;
+  font-size: 1.2rem;
+  line-height: 1.35;
+  font-weight: 600;
+  color: var(--whiteColor);
+}
+
+.features-circle__number {
+  display: block;
+  font-size: 4.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0.35rem 0;
+  color: var(--whiteColor);
+}
+
+.features-circle__link {
+  display: inline-block;
+  margin: 0.3rem 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--whiteColor);
+  text-decoration: underline;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+/* Max width 767px */
+@media only screen and (max-width: 767px) {
+  .features-intro {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .features-intro__text {
+    font-size: 1.1rem;
+    padding: 0 0.15rem;
+  }
+
+  .features-circles {
+    min-height: auto;
+  }
+
+  .features-circles__content {
+    padding: 2rem 0.5rem;
+  }
+
+  .features-circles__grid {
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .features-circle {
+    width: 160px;
+    min-height: 160px;
+    padding: 1.25rem 0.75rem;
+  }
+
+  .features-circle__number {
+    font-size: 2.5rem;
+  }
+
+  .features-circle__line {
+    font-size: 0.8rem;
+  }
+}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .features-circles__grid {
+    gap: 2.25rem;
+    flex-wrap: nowrap;
+  }
+
+  .features-circle {
+    width: 250px;
+    min-height: 250px;
+  }
+
+  .features-circle__number {
+    font-size: 3.75rem;
+  }
+
+  .features-circle__line,
+  .features-circle__link {
+    font-size: 1.1rem;
+  }
+}

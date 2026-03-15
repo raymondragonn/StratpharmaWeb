@@ -1,0 +1,47 @@
+<section id="contact" class="contact-section">
+  <!-- Banner título CONTACTO -->
+  <div class="contact-section__banner">
+    <h2 class="contact-section__banner-title">CONTACTO</h2>
+  </div>
+
+  <!-- Bloque de información de contacto -->
+  <div class="contact-section__content">
+    <p class="contact-section__intro">Si quieres más información no dudes en contactarnos</p>
+    <ul class="contact-section__list">
+      <li class="contact-section__item">
+        <i class="las la-phone contact-section__icon" aria-hidden="true"></i>
+        <a [href]="contact.phoneLink">{{ contact.phone }}</a>
+      </li>
+      <li class="contact-section__item">
+        <i class="las la-envelope contact-section__icon" aria-hidden="true"></i>
+        <a [href]="'mailto:' + contact.email">{{ contact.email }}</a>
+      </li>
+      <li class="contact-section__item">
+        <i class="lab la-instagram contact-section__icon" aria-hidden="true"></i>
+        <a [href]="contact.instagramUrl" target="_blank" rel="noopener noreferrer">{{ contact.instagram }}</a>
+      </li>
+      <li class="contact-section__item">
+        <i class="las la-map-marker-alt contact-section__icon" aria-hidden="true"></i>
+        <a [href]="contact.mapsUrl" target="_blank" rel="noopener noreferrer">{{ contact.address }}</a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Mapa (se rellenará con el link de Google Maps cuando lo proporciones) -->
+  <div class="contact-section__map">
+    <iframe
+      *ngIf="safeMapUrl"
+      [src]="safeMapUrl"
+      width="100%"
+      height="100%"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Ubicación Stratpharma">
+    </iframe>
+    <div *ngIf="!safeMapUrl" class="contact-section__map-placeholder">
+      <p>Mapa de Google Maps (añade el enlace en el componente)</p>
+    </div>
+  </div>
+</section>

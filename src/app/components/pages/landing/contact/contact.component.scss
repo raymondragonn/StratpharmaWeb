@@ -1,0 +1,129 @@
+.contact-section {
+  padding: 0;
+}
+
+/* Banner título CONTACTO: fondo rosa, texto blanco centrado */
+.contact-section__banner {
+  width: 100%;
+  padding: 1.5rem 1rem;
+  background-color: var(--mainColor);
+  text-align: center;
+}
+
+.contact-section__banner-title {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--whiteColor);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Bloque de información: fondo blanco */
+.contact-section__content {
+  width: 100%;
+  padding: 3rem 1rem;
+  background-color: var(--whiteColor);
+  text-align: center;
+}
+
+/* "Si quieres más información..." en color predeterminado (rosa) */
+.contact-section__intro {
+  margin: 0 0 2.5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--mainColor);
+  line-height: 1.5;
+}
+
+.contact-section__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.contact-section__item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--blackColor);
+
+  a {
+    color: var(--blackColor);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--mainColor);
+      text-decoration: underline;
+    }
+  }
+}
+
+.contact-section__icon {
+  flex-shrink: 0;
+  font-size: 2.5rem;
+  color: var(--mainColor);
+}
+
+/* Mapa: ancho completo, altura reducida */
+.contact-section__map {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 24%;
+  min-height: 200px;
+  background-color: #e8e8e8;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
+  }
+}
+
+.contact-section__map-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e8e8e8;
+  color: #666;
+  font-size: 1rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Max width 767px */
+@media only screen and (max-width: 767px) {
+  .contact-section__banner-title {
+    font-size: 1.4rem;
+  }
+
+  .contact-section__content {
+    padding: 2rem 0.75rem;
+  }
+
+  .contact-section__intro {
+    font-size: 1.35rem;
+    margin-bottom: 2rem;
+  }
+
+  .contact-section__item {
+    font-size: 1.1rem;
+  }
+
+  .contact-section__map {
+    min-height: 180px;
+    padding-bottom: 28%;
+  }
+}
