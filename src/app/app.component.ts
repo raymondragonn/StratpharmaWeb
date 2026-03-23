@@ -45,6 +45,22 @@ export class AppComponent implements OnInit {
             if (!(event instanceof NavigationEnd)) {
                 return;
             }
+            const navEnd = event as NavigationEnd;
+            const url = navEnd.urlAfterRedirects || navEnd.url || '';
+            const rawFragment = url.includes('#') ? url.split('#')[1] : '';
+            const fragment = (rawFragment?.split('?')[0] ?? '').trim();
+            if (fragment) {
+                /* No llevar al top: el hash apunta a una sección de la landing */
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        document.getElementById(fragment)?.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    });
+                });
+                return;
+            }
             window.scrollTo(0, 0);
         });
     }

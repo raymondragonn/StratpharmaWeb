@@ -1,12 +1,18 @@
-<section id="features" class="features">
+<section id="about" class="features">
   <!-- Banner introductorio: fondo rosa, texto blanco centrado -->
   <div class="features-intro">
-    <p class="features-intro__text">{{ introText }}</p>
+    <p class="features-intro__text">
+      {{ introTextLead }}<br />
+      {{ introTextHighlight }}
+    </p>
   </div>
 
   <!-- Sección con imagen de fondo difuminada y 4 círculos -->
   <div class="features-circles">
-    <div class="features-circles__bg"></div>
+    <div
+      class="features-circles__bg"
+      [style.background-image]="'url(' + featuresBackgroundImage + ')'"
+    ></div>
     <div class="features-circles__content">
       <div class="features-circles__grid">
         <div class="features-circle" *ngFor="let circle of circles">

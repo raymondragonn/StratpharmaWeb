@@ -13,7 +13,6 @@ export interface ProductDetailContent {
 export interface ProductDetailData {
   mainImage: string;
   thumbnails: string[];
-  overlayLabel?: string;
   shopUrl: string;
   content: ProductDetailContent;
 }
@@ -28,10 +27,13 @@ export interface ProductDetailData {
 export class AboutComponent implements OnInit, OnDestroy {
 
   private destroy$ = new Subject<void>();
+  private rotationTimer: ReturnType<typeof setInterval> | null = null;
+  private readonly rotationIntervalMs = 3000;
 
   product: ProductDetailData | null = null;
   productId: string | null = null;
   notFound = false;
+  currentMainImage = '';
 
   /** Contenido por producto según el diseño e información adjunta */
   private readonly productsMap: Record<string, ProductDetailData> = {
@@ -41,13 +43,12 @@ export class AboutComponent implements OnInit, OnDestroy {
         'assets/img/products/strata-triz/imgi_46_ST-5-ES-Tube-HighRes.jpg',
         'assets/img/products/strata-triz/imgi_78_ST-20-ES-Box-HighRes.jpg'
       ],
-      overlayLabel: 'UNA VEZ AL DÍA',
       shopUrl: 'https://es.stratpharma-shop.com/product-category/strata-triz/',
       content: {
         title: 'STRATA-TRIZ',
         paragraphList: [
           { paragraph: 'Strata-triz es un gel de silicona transparente, de secado rápido y no pegajoso, formulado para el tratamiento de cicatrices tanto recientes como antiguas, así como para la prevención de cicatrices anómalas, como cicatrices hipertróficas, queloides y de acné.' },
-          { paragraph: 'Se aplica una vez al día y cuando se utiliza según las indicaciones, Strata-triz se seca formando una lámina de gel de silicona que crea una capa protectora, permeable a los gases e impermeable al agua. Esta capa ayuda a hidratar, suavizar y proteger la cicatriz.' }
+          { paragraph: 'Cuando se utiliza según las indicaciones, Strata-triz se seca formando una lámina de gel de silicona que crea una capa protectora, permeable a los gases e impermeable al agua. Esta capa ayuda a hidratar, suavizar y proteger la cicatriz.' }
         ]
       }
     },
@@ -128,14 +129,46 @@ export class AboutComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    this.stopImageRotation();
     this.destroy$.next();
     this.destroy$.complete();
+  }
+
+  private getRotationImages(): string[] {
+    if (!this.product) {
+      return [];
+    }
+    return [this.product.mainImage, ...this.product.thumbnails];
+  }
+
+  private startImageRotation(): void {
+    this.stopImageRotation();
+    const images = this.getRotationImages();
+    if (images.length <= 1) {
+      return;
+    }
+    let index = 0;
+    this.currentMainImage = images[index];
+    this.rotationTimer = setInterval(() => {
+      index = (index + 1) % images.length;
+      this.currentMainImage = images[index];
+    }, this.rotationIntervalMs);
+  }
+
+  private stopImageRotation(): void {
+    if (!this.rotationTimer) {
+      return;
+    }
+    clearInterval(this.rotationTimer);
+    this.rotationTimer = null;
   }
 
   private loadProduct(id: string | null): void {
     if (!id) {
       this.notFound = true;
       this.product = null;
+      this.currentMainImage = '';
+      this.stopImageRotation();
       return;
     }
 
@@ -143,10 +176,14 @@ export class AboutComponent implements OnInit, OnDestroy {
     if (!data) {
       this.notFound = true;
       this.product = null;
+      this.currentMainImage = '';
+      this.stopImageRotation();
       return;
     }
 
     this.notFound = false;
     this.product = data;
+    this.currentMainImage = data.mainImage;
+    this.startImageRotation();
   }
 }

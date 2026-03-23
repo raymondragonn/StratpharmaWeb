@@ -20,9 +20,12 @@ export interface FeatureCircle {
   styleUrls: ['./features.component.scss']
 })
 export class FeaturesComponent {
+  featuresBackgroundImage = 'assets/img/image-two.png';
 
-  /** Texto del banner introductorio (fondo rosa) */
-  introText = 'Stratpharma, con sede en Basilea desde 2005, es una empresa global especializada en productos sanitarios. Nuestros equipos de primer nivel diseñan, desarrollan, fabrican y comercializan soluciones innovadoras que mejoran la calidad de vida de los pacientes en todo el mundo.';
+  /** Texto del banner introductorio (fondo rosa); la segunda parte va en renglón aparte */
+  introTextLead =
+    'Stratpharma, con sede en Basilea desde 2005, es una empresa global especializada en productos sanitarios. Nuestros equipos de primer nivel diseñan, desarrollan, fabrican y comercializan soluciones innovadoras que mejoran la calidad de vida de los ';
+  introTextHighlight = 'pacientes en todo el mundo.';
 
   /** Cuatro círculos de la sección principal */
   circles: FeatureCircle[] = [

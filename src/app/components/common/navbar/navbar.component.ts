@@ -1,19 +1,14 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, RouterLink, NavigationCancel, NavigationEnd } from '@angular/router';
-import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { Router, NavigationCancel, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule],
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss'],
-  providers: [
-    Location,
-    { provide: LocationStrategy, useClass: PathLocationStrategy }
-  ]
+  styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit, OnDestroy {
 
@@ -55,16 +50,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
       });
   }
 
-  /** True si estamos en la landing (path es /) */
-  isOnLanding(): boolean {
-    const path = this.router.url.split('?')[0].split('#')[0];
-    return path === '/' || path === '';
-  }
-
   private updateCurrentSectionFromRoute(url: string): void {
     const path = url.split('?')[0].split('#')[0];
     const hash = url.includes('#') ? url.split('#')[1]?.split('?')[0] || '' : '';
-    if (path.startsWith('/producto')) {
+    if (path.startsWith('/product')) {
       this.currentSection = 'products';
     } else if (path === '/' || path === '') {
       this.currentSection = hash && this.navItems.some(item => item.id === hash) ? hash : 'home';
@@ -75,35 +64,22 @@ export class NavbarComponent implements OnInit, OnDestroy {
     return this.currentSection === sectionId;
   }
 
-  scrollToSection(id: string): void {
+  /** Navega a la landing con ancla; el scroll lo aplica App tras NavigationEnd (evita scrollTo(0,0) global). */
+  private goToLandingSection(id: string): void {
     this.closeNavbar();
-    if (this.isOnLanding()) {
-      const el = document.getElementById(id);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        window.history.replaceState(null, '', `#${id}`);
-        this.currentSection = id;
-      }
-    } else {
-      this.router.navigate(['/'], { fragment: id }).then(() => {
-        this.currentSection = id;
-      });
-    }
+    void this.router.navigate(['/'], { fragment: id }).then(() => {
+      this.currentSection = id;
+    });
   }
 
   onLogoClick(event: Event): void {
-    if (this.isOnLanding()) {
-      event.preventDefault();
-      this.scrollToSection('home');
-    }
+    event.preventDefault();
+    this.goToLandingSection('home');
   }
 
-  /** En landing: evita el navego por defecto y hace scroll. En otras rutas: deja que routerLink navegue. */
   onNavClick(event: Event, id: string): void {
-    if (this.isOnLanding()) {
-      event.preventDefault();
-      this.scrollToSection(id);
-    }
+    event.preventDefault();
+    this.goToLandingSection(id);
   }
 
   private closeNavbar(): void {

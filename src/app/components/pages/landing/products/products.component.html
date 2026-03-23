@@ -8,23 +8,29 @@
   <div class="products-section__content">
     <div class="products-section__grid">
       <article class="product-item" *ngFor="let product of products.slice(0, 3)">
-        <div class="product-item__image-card">
+        <a
+          [routerLink]="['/product', product.id]"
+          class="product-item__image-card"
+          [attr.aria-label]="'Más información: ' + product.title">
           <img *ngIf="product.imageUrl" [src]="product.imageUrl" [alt]="product.title">
           <span *ngIf="!product.imageUrl" class="product-item__placeholder">{{ product.title }}</span>
-        </div>
+        </a>
         <h3 class="product-item__title">{{ product.title | uppercase }}</h3>
         <p class="product-item__desc">{{ product.description }}</p>
-        <a [routerLink]="['/producto', product.id]" class="product-item__btn">Más información</a>
+        <a [routerLink]="['/product', product.id]" class="product-item__btn">Más información</a>
       </article>
       <div class="products-section__row2" *ngIf="products.length > 3">
         <article class="product-item" *ngFor="let product of products.slice(3, 5)">
-          <div class="product-item__image-card">
+          <a
+            [routerLink]="['/product', product.id]"
+            class="product-item__image-card"
+            [attr.aria-label]="'Más información: ' + product.title">
             <img *ngIf="product.imageUrl" [src]="product.imageUrl" [alt]="product.title">
             <span *ngIf="!product.imageUrl" class="product-item__placeholder">{{ product.title }}</span>
-          </div>
+          </a>
           <h3 class="product-item__title">{{ product.title | uppercase }}</h3>
           <p class="product-item__desc">{{ product.description }}</p>
-          <a [routerLink]="['/producto', product.id]" class="product-item__btn">Más información</a>
+          <a [routerLink]="['/product', product.id]" class="product-item__btn">Más información</a>
         </article>
       </div>
     </div>

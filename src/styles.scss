@@ -2,7 +2,7 @@
 :root {
     --mainFontFamily: Arial, sans-serif;
     --headingFontFamily: Arial, sans-serif;
-    --mainColor: #CD336B; /* Rosa principal (Stratpharma) */
+    --mainColor: rgb(181, 47, 89); /* Rosa principal */
     --optionalColor: #6b6b84;
     --whiteColor: #ffffff;
     --blackColor: #031521;
@@ -52,13 +52,22 @@ body {
 
 /* Offset para scroll a secciones (navbar fijo) */
 #home,
-#features,
 #about,
 #feedback,
 #pricing,
 #author,
 #contact {
-    scroll-margin-top: 100px;
+    scroll-margin-top: 96px;
+}
+@media (max-width: 767px) {
+    #home,
+    #about,
+    #feedback,
+    #pricing,
+    #author,
+    #contact {
+        scroll-margin-top: 64px;
+    }
 }
 
 a {
@@ -441,54 +450,56 @@ textarea.form-control {
 
     body {
         font-size: 13px;
+        -webkit-text-size-adjust: 100%;
     }
     p {
         font-size: 13px;
+        line-height: 1.65;
     }
     .section-title {
         max-width: 100%;
-        margin-bottom: 35px;
+        margin-bottom: 30px;
 
         h2 {
-            font-size: 27px;
+            font-size: 24px;
         }
         p {
             max-width: 100%;
             font-size: 13px;
-            margin-top: 10px;
+            margin-top: 8px;
         }
     }
     .ptb-100 {
         padding: {
-            top: 60px;
-            bottom: 60px;
+            top: 50px;
+            bottom: 50px;
         };
     }
     .pt-100 {
-        padding-top: 60px;
+        padding-top: 50px;
     }
     .pb-100 {
-        padding-bottom: 60px;
+        padding-bottom: 50px;
     }
     .pb-70 {
-        padding-bottom: 30px;
+        padding-bottom: 25px;
     }
     .pt-70 {
-        padding-top: 30px;
+        padding-top: 25px;
     }
     .default-btn {
-        font-size: 14px;
+        font-size: 13px;
         padding: {
             top: 10px;
-            left: 30px;
-            right: 30px;
+            left: 24px;
+            right: 24px;
             bottom: 9px;
         };
     }
     .form-control {
-        padding: 0 14px;
+        padding: 0 12px;
         font-size: 13px;
-        height: 45px;
+        height: 42px;
     }
 
     .products-slider {
@@ -499,6 +510,28 @@ textarea.form-control {
         }
     }
 
+}
+
+/* Max width 374px — pantallas muy pequeñas */
+@media only screen and (max-width: 374px) {
+    body {
+        font-size: 12px;
+    }
+    p {
+        font-size: 12px;
+    }
+    .section-title h2 {
+        font-size: 21px;
+    }
+    .default-btn {
+        font-size: 12px;
+        padding: {
+            top: 9px;
+            left: 20px;
+            right: 20px;
+            bottom: 8px;
+        };
+    }
 }
 
 /* Min width 576px to Max width 767px */

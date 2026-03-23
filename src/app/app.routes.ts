@@ -4,5 +4,5 @@ import { AboutComponent } from './components/pages/landing/about/about.component
 
 export const routes: Routes = [
   { path: '', component: LandingComponent },
-  { path: 'producto/:id', component: AboutComponent }
+  { path: 'product/:id', component: AboutComponent }
 ];

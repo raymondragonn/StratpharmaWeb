@@ -10,10 +10,16 @@
       <div class="product-detail__grid">
         <!-- Columna izquierda: imágenes -->
         <div class="product-detail__images">
-          <div class="product-detail__main-image-card">
-            <img [src]="product.mainImage" [alt]="product.content.title">
-            <span class="product-detail__overlay-label" *ngIf="product.overlayLabel">{{ product.overlayLabel }}</span>
-          </div>
+          <a
+            class="product-detail__main-image-link"
+            [href]="product.shopUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            [attr.aria-label]="'Comprar ' + product.content.title">
+            <div class="product-detail__main-image-card">
+              <img [src]="currentMainImage || product.mainImage" [alt]="product.content.title">
+            </div>
+          </a>
           <div class="product-detail__thumbnails">
             <div class="product-detail__thumb-card" *ngFor="let thumb of product.thumbnails">
               <img [src]="thumb" [alt]="product.content.title">
