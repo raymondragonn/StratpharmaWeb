@@ -27,6 +27,12 @@ export class ProductsComponent {
       imageUrl: 'assets/img/products/strata-triz/imgi_44_ST-5-ES-Box-HighRes.jpg'
     },
     {
+      id: '4',
+      title: 'Stratamark',
+      description: 'Gel formulado para la prevención y el tratamiento de las estrías.',
+      imageUrl: 'assets/img/products/stratamark/imgi_43_SK20EX00TubeBoxLowRes1.jpg'
+    },
+    {
       id: '2',
       title: 'Stratamed',
       description:
@@ -39,12 +45,6 @@ export class ProductsComponent {
       description:
         'Apósito en gel diseñado para procedimientos fraccionados y tratamientos post-laser.',
       imageUrl: 'assets/img/products/stratacel/imgi_73_SC20EX00BoxTubeHighRes-1.jpg'
-    },
-    {
-      id: '4',
-      title: 'Stratamark',
-      description: 'Gel formulado para la prevención y el tratamiento de las estrías.',
-      imageUrl: 'assets/img/products/stratamark/imgi_43_SK20EX00TubeBoxLowRes1.jpg'
     },
     {
       id: '5',
