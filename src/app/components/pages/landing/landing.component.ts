@@ -3,6 +3,7 @@ import { BannerComponent } from './banner/banner.component';
 import { FeaturesComponent } from './features/features.component';
 import { ProductsComponent } from './products/products.component';
 import { ContactComponent } from './contact/contact.component';
+import { HowToBuyComponent } from './how-to-buy/how-to-buy.component';
 
 @Component({
   selector: 'app-landing',
@@ -11,6 +12,7 @@ import { ContactComponent } from './contact/contact.component';
     BannerComponent,
     FeaturesComponent,
     ProductsComponent,
+    HowToBuyComponent,
     ContactComponent
   ],
   templateUrl: './landing.component.html',

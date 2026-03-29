@@ -1,0 +1,371 @@
+.how-to-buy {
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.how-to-buy__banner {
+  width: 100%;
+  padding: clamp(1rem, 2.5vw, 1.5rem) clamp(0.5rem, 2vw, 1rem);
+  background-color: var(--mainColor);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.how-to-buy__banner-title {
+  margin: 0;
+  font-size: clamp(1.25rem, 4vw, 1.75rem);
+  font-weight: 700;
+  color: var(--whiteColor);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.how-to-buy__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: clamp(2rem, 5vw, 4rem) clamp(0.5rem, 2vw, 1rem);
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.how-to-buy__content-inner {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.how-to-buy__grid {
+  display: grid;
+  grid-template-columns: 1.28fr 1fr;
+  gap: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.5rem);
+  align-items: stretch;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Columna izquierda: video */
+.how-to-buy__image {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.how-to-buy__video-card {
+  width: 100%;
+  flex: 1 1 auto;
+  min-height: 220px;
+  aspect-ratio: 16 / 10;
+  box-sizing: border-box;
+
+  video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: #000;
+    pointer-events: none;
+  }
+}
+
+.how-to-buy__video-card--clickable {
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 3px solid rgba(181, 47, 89, 0.45);
+    outline-offset: 4px;
+  }
+}
+
+.how-to-buy__video-hint {
+  margin: 0.65rem 0 0;
+  width: 100%;
+  font-size: 0.78rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--mainColor);
+  text-align: center;
+  opacity: 0.88;
+}
+
+/* Columna derecha: pasos */
+.how-to-buy__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.how-to-buy__steps {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem 2rem;
+  width: 100%;
+}
+
+.how-to-buy__step {
+  display: flex;
+  flex-direction: column;
+}
+
+.how-to-buy__step-number {
+  display: none;
+}
+
+.how-to-buy__step-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.how-to-buy__step-title {
+  margin: 0 0 0.3rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--blackColor);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.how-to-buy__step-text {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--blackColor);
+}
+
+/* Botón */
+.how-to-buy__cta {
+  margin-top: 2rem;
+}
+
+.how-to-buy__btn {
+  display: inline-block;
+  padding: 0.85rem 2.5rem;
+  background-color: var(--mainColor);
+  color: var(--whiteColor);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border-radius: 2rem;
+  border: 2px solid transparent;
+  transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease;
+
+  &:hover {
+    background-color: rgb(130, 34, 64);
+    color: var(--whiteColor);
+    border-color: transparent;
+  }
+
+  &:active {
+    background-color: rgb(110, 29, 54);
+    color: var(--whiteColor);
+    border-color: transparent;
+  }
+
+  &:focus-visible {
+    outline: 3px solid rgba(181, 47, 89, 0.35);
+    outline-offset: 3px;
+  }
+}
+
+/* Responsive: tablet */
+@media (max-width: 991px) {
+  .how-to-buy__grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .how-to-buy__image {
+    align-items: center;
+  }
+
+  .how-to-buy__video-card {
+    max-width: min(420px, 85vw);
+  }
+
+  .how-to-buy__info {
+    align-items: center;
+  }
+
+  .how-to-buy__steps {
+    max-width: 520px;
+  }
+}
+
+/* Responsive: móvil */
+@media (max-width: 767px) {
+  .how-to-buy__banner {
+    padding: clamp(0.75rem, 2vw, 1.25rem) clamp(0.5rem, 2vw, 0.75rem);
+  }
+
+  .how-to-buy__banner-title {
+    font-size: 1.35rem;
+  }
+
+  .how-to-buy__content {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .how-to-buy__grid {
+    gap: 1.75rem;
+  }
+
+  .how-to-buy__video-card {
+    max-width: min(320px, 85vw);
+  }
+
+  .how-to-buy__steps {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .how-to-buy__step {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0.6rem;
+    background-color: #fef9fb;
+    border-radius: 14px;
+    padding: 0.75rem;
+  }
+
+  .how-to-buy__step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: var(--mainColor);
+    color: var(--whiteColor);
+    font-size: 0.85rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .how-to-buy__step-title {
+    display: none;
+  }
+
+  .how-to-buy__step-text {
+    font-size: 0.78rem;
+    line-height: 1.4;
+  }
+
+  .how-to-buy__btn {
+    padding: 0.75rem 2rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Max width 374px */
+@media (max-width: 374px) {
+  .how-to-buy__banner-title {
+    font-size: 1.2rem;
+  }
+
+  .how-to-buy__steps {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+
+  .how-to-buy__step-text {
+    font-size: 0.78rem;
+  }
+
+  .how-to-buy__btn {
+    padding: 0.65rem 1.5rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Modal video largo */
+.how-to-buy__modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: rgba(3, 21, 33, 0.75);
+  box-sizing: border-box;
+}
+
+.how-to-buy__modal-dialog {
+  position: relative;
+  width: 100%;
+  max-width: min(920px, 96vw);
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  box-sizing: border-box;
+}
+
+.how-to-buy__modal-title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.how-to-buy__modal-close {
+  position: absolute;
+  top: -2.5rem;
+  right: 0;
+  z-index: 2;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--whiteColor);
+  color: var(--blackColor);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    background-color: var(--mainColor);
+    color: var(--whiteColor);
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--whiteColor);
+    outline-offset: 2px;
+  }
+}
+
+@media (max-width: 767px) {
+  .how-to-buy__modal-close {
+    top: -2.75rem;
+    right: 0.25rem;
+  }
+}
+
+.how-to-buy__modal-video {
+  display: block;
+  width: 100%;
+  max-height: min(78vh, 100%);
+  border-radius: 12px;
+  background-color: #000;
+}

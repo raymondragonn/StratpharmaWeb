@@ -118,43 +118,28 @@
   border-radius: 2rem;
   border: 2px solid var(--mainColor);
   box-shadow: 0 2px 8px rgba(181, 47, 89, 0.2);
-  transition:
-    background-color 0.22s ease,
-    color 0.22s ease,
-    border-color 0.22s ease,
-    box-shadow 0.22s ease,
-    transform 0.2s ease;
+  transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease;
 
   &:hover {
     color: var(--whiteColor);
     text-decoration: none;
-    /* Rosa más claro (mezcla con blanco) + ligera elevación */
-    background-color: rgb(214, 108, 142);
-    background-color: color-mix(in srgb, var(--mainColor) 68%, white);
-    border-color: rgb(228, 140, 168);
-    border-color: color-mix(in srgb, var(--mainColor) 52%, white);
-    box-shadow: 0 8px 26px rgba(181, 47, 89, 0.32);
-    transform: translateY(-2px);
+    background-color: rgb(130, 34, 64);
+    border-color: rgb(130, 34, 64);
+    box-shadow: 0 2px 8px rgba(181, 47, 89, 0.2);
   }
 
   &:focus-visible {
     color: var(--whiteColor);
     text-decoration: none;
-    outline: none;
-    background-color: rgb(214, 108, 142);
-    background-color: color-mix(in srgb, var(--mainColor) 68%, white);
-    border-color: var(--mainColor);
-    box-shadow:
-      0 0 0 2px var(--whiteColor),
-      0 0 0 4px color-mix(in srgb, var(--mainColor) 50%, white),
-      0 8px 22px rgba(181, 47, 89, 0.28);
+    outline: 3px solid rgba(181, 47, 89, 0.35);
+    outline-offset: 3px;
+    background-color: rgb(130, 34, 64);
+    border-color: rgb(130, 34, 64);
   }
 
   &:active {
-    transform: translateY(0);
-    box-shadow: 0 3px 12px rgba(181, 47, 89, 0.22);
-    background-color: rgb(198, 82, 118);
-    background-color: color-mix(in srgb, var(--mainColor) 82%, white);
+    background-color: rgb(110, 29, 54);
+    border-color: rgb(110, 29, 54);
   }
 }
 

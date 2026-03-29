@@ -14,6 +14,7 @@ export interface ProductDetailData {
   mainImage: string;
   thumbnails: string[];
   shopUrl: string;
+  infoUrl: string;
   content: ProductDetailContent;
 }
 
@@ -44,6 +45,7 @@ export class AboutComponent implements OnInit, OnDestroy {
         'assets/img/products/strata-triz/imgi_78_ST-20-ES-Box-HighRes.jpg'
       ],
       shopUrl: 'https://es.stratpharma-shop.com/product-category/strata-triz/',
+      infoUrl: 'https://es.stratatriz.com',
       content: {
         title: 'STRATA-TRIZ',
         paragraphList: [
@@ -59,6 +61,7 @@ export class AboutComponent implements OnInit, OnDestroy {
         'assets/img/products/stratamed/imgi_139_MS05EX00TubeLowRes-600x600.jpg'
       ],
       shopUrl: 'https://es.stratpharma-shop.com/product-category/stratamed/',
+      infoUrl: 'https://stratamed.com',
       content: {
         title: 'STRATAMED',
         paragraphList: [
@@ -75,6 +78,7 @@ export class AboutComponent implements OnInit, OnDestroy {
         'assets/img/products/stratacel/imgi_48_SC10EX002TubeLowRes.jpg'
       ],
       shopUrl: 'https://es.stratpharma-shop.com/product-category/stratacel/',
+      infoUrl: 'https://stratacel.com',
       content: {
         title: 'STRATACEL',
         paragraphList: [
@@ -91,6 +95,7 @@ export class AboutComponent implements OnInit, OnDestroy {
         'assets/img/products/stratamark/imgi_67_SK50EX00TubeBoxLowRes.jpg'
       ],
       shopUrl: 'https://es.stratpharma-shop.com/product-category/stratamark/',
+      infoUrl: 'https://stratamark.net/',
       content: {
         title: 'STRATAMARK',
         paragraphList: [
@@ -106,6 +111,7 @@ export class AboutComponent implements OnInit, OnDestroy {
         'assets/img/products/strataxrt/imgi_64_SX50EX00TubeBoxLowRes.jpg'
       ],
       shopUrl: 'https://es.stratpharma-shop.com/product-category/strataxrt/',
+      infoUrl: 'https://strataxrt.com',
       content: {
         title: 'STRATAXRT',
         paragraphList: [

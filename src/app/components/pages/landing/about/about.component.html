@@ -32,7 +32,10 @@
           <h1 class="product-detail__title">{{ product.content.title }}</h1>
           <p class="product-detail__paragraph" *ngFor="let p of product.content.paragraphList">{{ p.paragraph }}</p>
           <p class="product-detail__highlight" *ngIf="product.content.highlightLine">{{ product.content.highlightLine }}</p>
-          <a [href]="product.shopUrl" target="_blank" rel="noopener noreferrer" class="product-detail__btn">COMPRAR PRODUCTO</a>
+          <div class="product-detail__cta">
+            <a [href]="product.infoUrl" target="_blank" rel="noopener noreferrer" class="product-detail__btn product-detail__btn--secondary">MÁS INFORMACIÓN</a>
+            <a [href]="product.shopUrl" target="_blank" rel="noopener noreferrer" class="product-detail__btn">COMPRAR PRODUCTO</a>
+          </div>
         </div>
       </div>
     </div>

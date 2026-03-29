@@ -1,0 +1,86 @@
+<section id="how-to-buy" class="how-to-buy">
+  <div class="how-to-buy__banner">
+    <h2 class="how-to-buy__banner-title">MÉTODOS DE COMPRA</h2>
+  </div>
+
+  <div class="how-to-buy__content">
+    <div class="how-to-buy__content-inner">
+      <div class="how-to-buy__grid">
+        <!-- Columna izquierda: imagen laptop -->
+        <div class="how-to-buy__image">
+          <div
+            class="how-to-buy__video-card how-to-buy__video-card--clickable"
+            role="button"
+            tabindex="0"
+            [attr.aria-expanded]="modalOpen"
+            aria-describedby="how-to-buy-video-hint"
+            aria-label="Reproducir video explicativo"
+            (click)="openVideoModal()"
+            (keydown.enter)="openVideoModal()"
+            (keydown.space)="$event.preventDefault(); openVideoModal()">
+            <video
+              #explanatoryVideo
+              src="assets/img/video-explicativo.mp4"
+              autoplay
+              loop
+              muted
+              playsinline
+              preload="auto"
+              controlsList="nodownload"
+              (contextmenu)="$event.preventDefault()">
+            </video>
+          </div>
+          <p id="how-to-buy-video-hint" class="how-to-buy__video-hint">Haz clic sobre el vídeo para verlo más grande.</p>
+        </div>
+
+        <!-- Columna derecha: pasos + botón -->
+        <div class="how-to-buy__info">
+          <div class="how-to-buy__steps">
+            <div class="how-to-buy__step" *ngFor="let step of steps">
+              <span class="how-to-buy__step-number">{{ step.number }}</span>
+              <div class="how-to-buy__step-body">
+                <h4 class="how-to-buy__step-title">PASO {{ step.number }}</h4>
+                <p class="how-to-buy__step-text">{{ step.text }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="how-to-buy__cta">
+            <a href="#products" class="how-to-buy__btn" (click)="goToProducts($event)">COMPRAR PRODUCTO</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    *ngIf="modalOpen"
+    class="how-to-buy__modal-backdrop"
+    (click)="closeVideoModal()"
+    role="presentation">
+    <div
+      class="how-to-buy__modal-dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="how-to-buy-modal-title"
+      (click)="$event.stopPropagation()">
+      <h3 id="how-to-buy-modal-title" class="how-to-buy__modal-title">Video explicativo</h3>
+      <button
+        type="button"
+        class="how-to-buy__modal-close"
+        (click)="closeVideoModal()"
+        aria-label="Cerrar">
+        ×
+      </button>
+      <video
+        #modalVideo
+        class="how-to-buy__modal-video"
+        src="assets/img/video-explicativo2.mp4"
+        controls
+        playsinline
+        preload="metadata"
+        controlsList="nodownload"
+        (contextmenu)="$event.preventDefault()">
+      </video>
+    </div>
+  </div>
+</section>

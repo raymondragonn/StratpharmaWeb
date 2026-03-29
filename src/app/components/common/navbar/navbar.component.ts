@@ -19,6 +19,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     { id: 'home', title: 'HOME' },
     { id: 'about', title: 'SOBRE NOSOTROS' },
     { id: 'products', title: 'NUESTROS PRODUCTOS', titleLines: ['NUESTROS', 'PRODUCTOS'] },
+    { id: 'how-to-buy', title: 'COMPRA' },
     { id: 'contact', title: 'CONTACTO' }
   ];
 
