@@ -11,11 +11,15 @@
         <a
           [routerLink]="['/product', product.id]"
           class="product-item__image-card"
+          [class.product-item__image-card--strata-triz]="product.id === '1'"
+          [class.product-item__image-card--stratamed]="product.id === '2'"
+          [class.product-item__image-card--stratacel]="product.id === '3'"
+          [class.product-item__image-card--stratamark]="product.id === '4'"
           [attr.aria-label]="'Más información: ' + product.title">
           <img *ngIf="product.imageUrl" [src]="product.imageUrl" [alt]="product.title">
           <span *ngIf="!product.imageUrl" class="product-item__placeholder">{{ product.title }}</span>
         </a>
-        <h3 class="product-item__title">{{ product.title | uppercase }}</h3>
+        <h3 class="product-item__title">{{ (product.title | uppercase).replace('®', '') }}<sup class="product-item__mark" *ngIf="product.title.includes('®')">®</sup></h3>
         <p class="product-item__desc">{{ product.description }}</p>
         <a [routerLink]="['/product', product.id]" class="product-item__btn">Más información</a>
       </article>
@@ -24,11 +28,15 @@
           <a
             [routerLink]="['/product', product.id]"
             class="product-item__image-card"
+            [class.product-item__image-card--strata-triz]="product.id === '1'"
+            [class.product-item__image-card--stratamed]="product.id === '2'"
+            [class.product-item__image-card--stratacel]="product.id === '3'"
+            [class.product-item__image-card--stratamark]="product.id === '4'"
             [attr.aria-label]="'Más información: ' + product.title">
             <img *ngIf="product.imageUrl" [src]="product.imageUrl" [alt]="product.title">
             <span *ngIf="!product.imageUrl" class="product-item__placeholder">{{ product.title }}</span>
           </a>
-          <h3 class="product-item__title">{{ product.title | uppercase }}</h3>
+          <h3 class="product-item__title">{{ (product.title | uppercase).replace('®', '') }}<sup class="product-item__mark" *ngIf="product.title.includes('®')">®</sup></h3>
           <p class="product-item__desc">{{ product.description }}</p>
           <a [routerLink]="['/product', product.id]" class="product-item__btn">Más información</a>
         </article>

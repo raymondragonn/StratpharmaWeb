@@ -17,7 +17,12 @@ export class ContactComponent {
     email: 'afernandez@stratpharma.com',
     instagram: '@stratpharma_iberia',
     instagramUrl: 'https://www.instagram.com/stratpharma_iberia/',
-    address: 'P.º de la Castellana, 216, Chamartín, 28046 Madrid',
+    facebook: 'Stratpharma Iberia',
+    facebookUrl: 'https://www.facebook.com/profile.php?id=61586453257071&locale=es_ES',
+    tiktok: '@stratpharma_iberia',
+    tiktokUrl: 'https://www.tiktok.com/@stratpharma_iberia',
+    addressLine1: 'Paseo de La Castellana, N\u00BA 216 - Planta 8',
+    addressLine2: '28046 - MADRID',
     mapsUrl: 'https://www.google.com/maps/search/?api=1&query=40.4668927,-3.6884653'
   };
 

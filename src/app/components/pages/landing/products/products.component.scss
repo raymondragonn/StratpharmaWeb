@@ -43,11 +43,12 @@
   text-align: center;
 }
 
-/* Card de imagen: enlace a la ficha del producto */
+/* Card de imagen: altura fija + contain para que cada PNG (distinta resolución/proporción) encaje sin recorte */
 .product-item__image-card {
+  --product-card-image-h: 280px;
   width: 100%;
   max-width: 360px;
-  aspect-ratio: 4 / 3;
+  height: var(--product-card-image-h);
   border-radius: 44px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   overflow: hidden;
@@ -55,7 +56,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
+  padding: 0.75rem;
+  padding-left: 1.05rem;
   box-sizing: border-box;
   text-decoration: none;
   color: inherit;
@@ -79,11 +81,34 @@
   }
 
   img {
-    max-width: 100%;
-    max-height: 100%;
+    transform: scale(1.8);
+    width: 100%;
+    height: 100%;
     object-fit: contain;
-    mix-blend-mode: multiply;
+    object-position: center;
+    display: block;
   }
+}
+
+/* Stratamark: reducir scale solo en esta portada */
+.product-item__image-card--stratamark {
+  img {
+    transform: scale(1.16);
+  }
+}
+
+/* Strata-triz: un poco más de padding-left */
+.product-item__image-card--strata-triz {
+  padding-left: 1.25rem;
+}
+
+/* Más padding-left SOLO para estas dos portadas */
+.product-item__image-card--stratacel {
+  padding-left: 1.75rem;
+}
+
+.product-item__image-card--stratamed {
+  padding-left: 2.8rem;
 }
 
 .product-item__placeholder {
@@ -98,6 +123,15 @@
   color: var(--blackColor);
   text-transform: uppercase;
   letter-spacing: 0.03em;
+}
+
+.product-item__mark {
+  font-size: 0.55em;
+  display: inline-block;
+  vertical-align: baseline;
+  line-height: 1;
+  margin-left: -0.06em;
+  transform: translateY(0.42em);
 }
 
 .product-item__desc {
@@ -182,9 +216,27 @@
   }
 
   .product-item__image-card {
+    --product-card-image-h: 240px;
     max-width: 280px;
     border-radius: 32px;
-    padding: 1.25rem;
+    padding: 0.75rem;
+  }
+
+  .product-item__image-card--strata-triz {
+    padding-left: 1.15rem;
+  }
+
+  .product-item__image-card--stratamed,
+  .product-item__image-card--stratacel {
+    padding-left: 1.25rem;
+  }
+
+  .product-item__image-card--stratacel {
+    padding-left: 1.35rem;
+  }
+
+  .product-item__image-card--stratamed {
+    padding-left: 2.1rem;
   }
 
   .product-item__title {
@@ -211,9 +263,27 @@
   }
 
   .product-item__image-card {
+    --product-card-image-h: 210px;
     max-width: 240px;
     border-radius: 24px;
-    padding: 1rem;
+    padding: 0.75rem;
+  }
+
+  .product-item__image-card--strata-triz {
+    padding-left: 1.05rem;
+  }
+
+  .product-item__image-card--stratamed,
+  .product-item__image-card--stratacel {
+    padding-left: 1.15rem;
+  }
+
+  .product-item__image-card--stratacel {
+    padding-left: 1.25rem;
+  }
+
+  .product-item__image-card--stratamed {
+    padding-left: 1.8rem;
   }
 
   .product-item__title {

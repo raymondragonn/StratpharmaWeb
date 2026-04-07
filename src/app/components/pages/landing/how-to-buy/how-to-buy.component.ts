@@ -57,7 +57,25 @@ export class HowToBuyComponent implements AfterViewInit, OnDestroy {
 
   goToProducts(event: Event): void {
     event.preventDefault();
-    void this.router.navigate(['/'], { fragment: 'products' });
+    const scrollToProducts = (): boolean => {
+      const target = document.getElementById('products');
+      if (!target) {
+        return false;
+      }
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      window.history.replaceState(null, '', '#products');
+      return true;
+    };
+
+    if (scrollToProducts()) {
+      return;
+    }
+
+    void this.router.navigate(['/'], { fragment: 'products' }).then(() => {
+      setTimeout(() => {
+        scrollToProducts();
+      }, 0);
+    });
   }
 
   openVideoModal(): void {

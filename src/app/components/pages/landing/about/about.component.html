@@ -21,16 +21,32 @@
             </div>
           </a>
           <div class="product-detail__thumbnails">
-            <div class="product-detail__thumb-card" *ngFor="let thumb of product.thumbnails">
+            <button
+              type="button"
+              class="product-detail__thumb-card"
+              [class.is-active]="thumb === currentMainImage"
+              *ngFor="let thumb of product.thumbnails"
+              (click)="selectImage(thumb)"
+              [attr.aria-label]="'Ver imagen de ' + product.content.title">
               <img [src]="thumb" [alt]="product.content.title">
-            </div>
+            </button>
           </div>
         </div>
 
         <!-- Columna derecha: título, descripción, CTA -->
         <div class="product-detail__info">
-          <h1 class="product-detail__title">{{ product.content.title }}</h1>
+          <h1 class="product-detail__title">{{ product.content.title.replace('®', '') }}<sup class="product-detail__mark" *ngIf="product.content.title.includes('®')">®</sup></h1>
           <p class="product-detail__paragraph" *ngFor="let p of product.content.paragraphList">{{ p.paragraph }}</p>
+          <p class="product-detail__sanitary-line" *ngIf="product.content.sanitaryLine">
+            <span class="product-detail__sanitary-inner">
+              <img
+                class="product-detail__ce-img"
+                src="assets/img/products/ce-2797.png"
+                alt="CE 2797"
+                decoding="async" />
+              <span class="product-detail__sanitary-text">{{ product.content.sanitaryLine }}</span>
+            </span>
+          </p>
           <p class="product-detail__highlight" *ngIf="product.content.highlightLine">{{ product.content.highlightLine }}</p>
           <div class="product-detail__cta">
             <a [href]="product.infoUrl" target="_blank" rel="noopener noreferrer" class="product-detail__btn product-detail__btn--secondary">MÁS INFORMACIÓN</a>

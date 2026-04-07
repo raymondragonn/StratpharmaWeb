@@ -133,6 +133,7 @@
 .product-detail__thumb-card {
   width: 80px;
   height: 80px;
+  border: 2px solid transparent;
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
   overflow: hidden;
@@ -142,6 +143,22 @@
   justify-content: center;
   padding: 0.5rem;
   box-sizing: border-box;
+  cursor: pointer;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+
+  &:hover {
+    border-color: rgba(181, 47, 89, 0.45);
+  }
+
+  &:focus-visible {
+    outline: 2px solid rgba(181, 47, 89, 0.35);
+    outline-offset: 2px;
+  }
+
+  &.is-active {
+    border-color: var(--mainColor);
+    box-shadow: 0 0 0 2px rgba(181, 47, 89, 0.18);
+  }
 
   img {
     max-width: 100%;
@@ -160,7 +177,7 @@
 }
 
 .product-detail__title {
-  margin: 0 0 1.25rem;
+  margin: 0 0 0.25rem;
   font-size: clamp(1.5rem, 4vw, 2rem);
   font-weight: 700;
   color: var(--blackColor);
@@ -169,11 +186,55 @@
   line-height: 1.2;
 }
 
+.product-detail__mark {
+  font-size: 0.45em;
+  display: inline-block;
+  vertical-align: baseline;
+  line-height: 1;
+  margin-left: -0.11em;
+  transform: translateY(0.52em);
+}
+
 .product-detail__paragraph {
   margin: 0 0 1rem;
   font-size: 1rem;
   line-height: 1.6;
   color: var(--blackColor);
+}
+
+.product-detail__sanitary-line {
+  margin: -0.15rem 0 0.85rem;
+  width: 100%;
+  font-size: 0.86rem;
+  font-style: italic;
+  text-align: center;
+  color: #9ca3af;
+}
+
+.product-detail__sanitary-inner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 0.3rem 0.45rem;
+  max-width: 100%;
+}
+
+.product-detail__ce-img {
+  height: clamp(0.95rem, 2.2vw, 1.25rem);
+  width: auto;
+  display: block;
+  flex-shrink: 0;
+  object-fit: contain;
+  transform: translateY(0.08rem);
+  filter: grayscale(1) brightness(0.78) contrast(0.9);
+  opacity: 0.9;
+}
+
+.product-detail__sanitary-text {
+  text-align: center;
+  line-height: 1.35;
+  max-width: min(100%, 28rem);
 }
 
 .product-detail__highlight {
@@ -375,6 +436,10 @@
 
 /* Max width 374px — pantallas muy pequeñas */
 @media (max-width: 374px) {
+  .product-detail__sanitary-inner {
+    flex-wrap: wrap;
+  }
+
   .product-detail__banner-title {
     font-size: 1.2rem;
   }
