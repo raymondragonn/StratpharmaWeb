@@ -19,11 +19,10 @@
 .hero-banner__nav-row {
     position: relative;
     z-index: 3;
-    display: flex !important;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     align-items: center;
-    gap: 1.85rem 5.75rem;
+    column-gap: 5.75rem;
     padding: 2rem 0.75rem;
     min-height: 8rem;
     background-color: var(--mainColor);
@@ -40,7 +39,7 @@
     letter-spacing: 0.04em;
     text-align: center;
     padding: 0 0.5rem;
-    white-space: nowrap;
+    white-space: normal;
 }
 
 .hero-banner__bg {
@@ -220,14 +219,14 @@
     }
 }
 
-/* Min width 768px to Max width 991px */
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+/* Min width 768px to Max width 1199px (alineado con navbar-expand-xl) */
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
     .hero-banner {
         --banner-top-offset: 100px;
     }
 
     .hero-banner__nav-row {
-        gap: 1rem 3rem;
+        column-gap: 3rem;
     }
 
     .hero-banner__nav-col {

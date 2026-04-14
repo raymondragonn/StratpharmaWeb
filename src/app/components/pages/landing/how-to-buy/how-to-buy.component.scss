@@ -177,6 +177,42 @@
   }
 }
 
+/* Escritorio "compacto" (ej. 1180px): mantener 2 columnas SOLO en computadoras */
+@media (max-width: 1199px) and (min-width: 992px) and (hover: hover) and (pointer: fine) {
+  .how-to-buy__grid {
+    gap: 2.25rem 2rem;
+  }
+
+  .how-to-buy__video-card {
+    aspect-ratio: 16 / 10;
+    min-height: 200px;
+  }
+}
+
+/* Tablets táctiles (iPad, etc.) en horizontal: usar layout tipo tablet (1 columna) */
+@media (max-width: 1199px) and (min-width: 992px) and (hover: none) and (pointer: coarse) {
+  .how-to-buy__grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .how-to-buy__image {
+    align-items: center;
+  }
+
+  .how-to-buy__video-card {
+    max-width: min(420px, 85vw);
+  }
+
+  .how-to-buy__info {
+    align-items: center;
+  }
+
+  .how-to-buy__steps {
+    max-width: 520px;
+  }
+}
+
 /* Responsive: tablet */
 @media (max-width: 991px) {
   .how-to-buy__grid {

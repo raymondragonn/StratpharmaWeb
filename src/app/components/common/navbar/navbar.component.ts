@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, NavigationCancel, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
@@ -89,5 +89,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
       const bootstrap = (window as unknown as { bootstrap?: { Collapse: { getInstance: (el: Element) => { hide: () => void } | null } } }).bootstrap;
       bootstrap?.Collapse?.getInstance(collapseEl)?.hide();
     }
+  }
+
+  /** Cierra el menú al rotar o redimensionar para evitar estados incoherentes entre breakpoints. */
+  @HostListener('window:resize')
+  onWindowResize(): void {
+    this.closeNavbar();
   }
 }

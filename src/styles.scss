@@ -8,6 +8,28 @@
     --blackColor: #031521;
     --fontSize: 15px;
     --transition: .5s;
+    /* Altura aproximada del navbar para scroll-margin (anclas); se refina por breakpoint */
+    --navbar-scroll-offset: 96px;
+}
+@media (max-width: 1199px) {
+    :root {
+        --navbar-scroll-offset: 92px;
+    }
+}
+@media (max-width: 767px) {
+    :root {
+        --navbar-scroll-offset: 72px;
+    }
+}
+@media (max-width: 374px) {
+    :root {
+        --navbar-scroll-offset: 64px;
+    }
+}
+@media (orientation: landscape) and (max-height: 500px) {
+    :root {
+        --navbar-scroll-offset: 56px;
+    }
 }
 body {
     margin: 0;
@@ -50,7 +72,7 @@ body {
     }
 }
 
-/* Offset para scroll a secciones (navbar fijo) */
+/* Offset para scroll a secciones (navbar fijo + notch iOS) */
 #home,
 #about,
 #feedback,
@@ -58,18 +80,7 @@ body {
 #author,
 #how-to-buy,
 #contact {
-    scroll-margin-top: 96px;
-}
-@media (max-width: 767px) {
-    #home,
-    #about,
-    #feedback,
-    #pricing,
-    #author,
-    #how-to-buy,
-    #contact {
-        scroll-margin-top: 64px;
-    }
+    scroll-margin-top: calc(var(--navbar-scroll-offset) + env(safe-area-inset-top, 0px));
 }
 
 a {
@@ -543,8 +554,8 @@ textarea.form-control {
 
 }
 
-/* Min width 768px to Max width 991px */
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+/* Min width 768px to Max width 1199px (tablet / iPad hasta menú hamburger con navbar-expand-xl) */
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
 
     body {
         font-size: 14px;
@@ -593,21 +604,18 @@ textarea.form-control {
         font-size: 14px;
     }
 
-}
-
-/* Min width 992px to Max width 1199px */
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-
-    .section-title {
-        h2 {
-            font-size: 37px;
+    @media (min-width: 992px) {
+        .section-title {
+            h2 {
+                font-size: 37px;
+            }
+            p {
+                font-size: 15px;
+            }
         }
-        p {
+        .default-btn {
             font-size: 15px;
         }
-    }
-    .default-btn {
-        font-size: 15px;
     }
 
 }

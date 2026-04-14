@@ -1,3 +1,19 @@
 {
-    "angular.enable-strict-mode-prompt": false
+    "angular.enable-strict-mode-prompt": false,
+    "terminal.integrated.defaultProfile.osx": "zsh-login",
+    "terminal.integrated.profiles.osx": {
+        "zsh-login": {
+            "path": "/bin/zsh",
+            "args": ["-l"]
+        },
+        "zsh-limpio": {
+            "path": "/bin/zsh",
+            "args": ["-f"]
+        },
+        "bash-login": {
+            "path": "/bin/bash",
+            "args": ["-l"]
+        }
+    },
+    "terminal.integrated.shellIntegration.enabled": false
 }

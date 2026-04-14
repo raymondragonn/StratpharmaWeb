@@ -33,6 +33,27 @@
   row-gap: 3.5rem;
   max-width: 1240px;
   margin: 0 auto;
+  justify-items: center;
+}
+
+/* Desktop clásico: 3 arriba + 2 centrados abajo (como antes) */
+@media (min-width: 1200px) and (hover: hover) and (pointer: fine) {
+  .products-section__grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .product-item {
+    grid-column: span 2;
+  }
+
+  /* Centrar los dos últimos en la segunda fila */
+  .product-item:nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+
+  .product-item:nth-child(5) {
+    grid-column: 4 / span 2;
+  }
 }
 
 /* Item de producto: sin card; solo la imagen tiene estilo de card */
@@ -41,6 +62,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  width: 100%;
 }
 
 /* Card de imagen: altura fija + contain para que cada PNG (distinta resolución/proporción) encaje sin recorte */
@@ -177,6 +199,32 @@
   }
 }
 
+/* Escritorio "compacto" (ej. 1180px): mantener 3 columnas SOLO en computadoras */
+@media (max-width: 1199px) and (min-width: 992px) and (hover: hover) and (pointer: fine) {
+  .products-section__grid {
+    gap: 1.5rem 2.5rem;
+    row-gap: 3rem;
+  }
+
+  .products-section__content {
+    padding: 3.5rem 1rem;
+  }
+
+  .product-item__image-card {
+    max-width: 340px;
+    --product-card-image-h: 270px;
+  }
+}
+
+/* Tablets táctiles (iPad, etc.) en horizontal: NO forzar 3 columnas */
+@media (max-width: 1199px) and (min-width: 992px) and (hover: none) and (pointer: coarse) {
+  .products-section__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem 2rem;
+  }
+}
+
+/* Tablet / pantallas más estrechas: pasar a 2 columnas */
 @media (max-width: 991px) {
   .products-section__grid {
     grid-template-columns: repeat(2, 1fr);
@@ -185,6 +233,12 @@
 
   .products-section__content {
     padding: 3rem 1rem;
+  }
+
+  /* Si queda 1 card sola en la última fila (p.ej. 5 items), centrarla */
+  .product-item:nth-child(odd):last-child {
+    grid-column: 1 / -1;
+    justify-self: center;
   }
 }
 
@@ -207,12 +261,6 @@
     max-width: 320px;
     margin-left: auto;
     margin-right: auto;
-  }
-
-  .products-section__row2 {
-    flex-direction: column;
-    align-items: center;
-    gap: 2.25rem;
   }
 
   .product-item__image-card {
@@ -300,29 +348,3 @@
   }
 }
 
-/* Segunda fila: mismo hueco horizontal que entre columnas del grid (3.5rem) */
-.products-section__row2 {
-  grid-column: 1 / -1;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 3.5rem;
-
-  /* Misma anchura máxima que la card de imagen: el texto no se estira en columnas anchas */
-  .product-item {
-    flex: 0 1 auto;
-    width: 100%;
-    max-width: 360px;
-  }
-
-  .product-item__title {
-    font-size: 1.05rem;
-  }
-
-  .product-item__desc {
-    font-size: 0.88rem;
-    line-height: 1.45;
-    max-width: 100%;
-  }
-}
